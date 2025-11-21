@@ -561,8 +561,8 @@
                 <div class="hero-text">
                     <span class="intro-label">INTRODUCING</span>
                     <h1>agni</h1>
-                    <p class="subtitle">Inspired by</p>
-                    <p class="lead">Sadhguru's piercing insights, we are happy to present a series of practical and profound initiatives that you can implement to bring an element of Yogi in you!</p>
+                    <!-- <p class="subtitle">Inspired by</p> -->
+                    <p class="lead">Inspired by Sadhguru's piercing insights, we are happy to present a series of practical and profound initiatives that you can implement to bring an element of Yogi in you!</p>
                     
                 </div>
                 
@@ -593,9 +593,18 @@
         </div>
     </section>
 
-    <!-- EP - 1 -->
+    <br>
+    <br>
+
+    <!-- EP -->
      
-    <style>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agni Series</title>
+  <style>
     body {
       font-family: 'Georgia', serif;
       background-color: #fff;
@@ -634,7 +643,94 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
 
+    /* Grid Layout */
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .episode-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .episode-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .episode-card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .episode-content {
+      padding: 20px;
+    }
+
+    .episode-content h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #2d2d2d;
+    }
+
+    .episode-content p {
+      font-size: 0.9rem;
+      color: #4a4a4a;
+      line-height: 1.5;
+    }
+
+    /* More Episodes Button */
+    .more-episodes-btn {
+      display: block;
+      margin: 40px auto 60px;
+      padding: 12px 30px;
+      background-color: #2d2d2d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .more-episodes-btn:hover {
+      background-color: #4a4a4a;
+    }
+
+    .show-less-btn {
+      display: none; /* Initially hidden */
+      background-color: #6c757d;
+    }
+
+    .show-less-btn:hover {
+      background-color: #5a6268;
+    }
+
+    /* Hidden episodes */
+    .hidden-episodes {
+      display: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .episodes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
+      .episodes-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .agni-block iframe {
         height: 300px;
       }
@@ -644,711 +740,922 @@
 <body>
 
   <div class="container">
-    <!-- Episode 1 -->
+    <!-- Episodes -->
     <div class="row">
-      <h2>Agni Ep 1 — Eating with Gratitude!</h2>
+      <h2>Agni Series</h2>
       <p class="agni-title">
-        How many things we have been taking for granted? Let's start with the food first! 
-        What happens when we don't take food for granted and understand how many beings gave their lives away to nourish ours?
+        A collection of videos exploring yogic principles of food and nutrition
       </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/7dD4lBhPkLA"></iframe>
-      </div>
     </div>
 
-    <!-- Episode 2 -->
-    <div class="row">
-      <h2>Agni Ep 2 — Chewing Food 24 Times!</h2>
-      <p class="agni-title">
-        Many people have picked up this habit of finishing their meal in 6-7 minutes! 
-        How much overwork the digestive system has to do when you eat like you are drinking a glass of water! 
-        It's time to chew each bite consciously and experience the tremendous change you feel within!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/oyJ544AgYOc"></iframe>
-      </div>
+    <div class="episodes-grid" id="episodes-container">
+      <!-- First 9 episodes will be loaded here -->
     </div>
+
+    <div class="hidden-episodes" id="hidden-episodes">
+      <!-- Remaining episodes will be loaded here -->
+    </div>
+
+    <button class="more-episodes-btn" id="more-episodes-btn">More Episodes</button>
+    <button class="more-episodes-btn show-less-btn" id="show-less-btn">Show Less</button>
   </div>
 
-  <!-- Episode 3 -->
-    <div class="row">
-      <h2>Agni Ep 3 — Setting the Right Ambience for Eating</h2>
-      <p class="agni-title">
-        This may surprise you but how you consume food is as important as what you consume! 
-        Don't be in a hurry — don't watch TV, check your phone, or do any other passive activity 
-        while consuming food. Eating something is a sacred act and you should do it with utmost 
-        awareness and gratitude!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/gX44WjfLWcU"></iframe>
-      </div>
-    </div>
-  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const episodesContainer = document.getElementById('episodes-container');
+      const hiddenEpisodesContainer = document.getElementById('hidden-episodes');
+      const moreEpisodesBtn = document.getElementById('more-episodes-btn');
+      const showLessBtn = document.getElementById('show-less-btn');
+      
+      // Episode data
+      const episodes = [
+        {
+          title: "Agni Ep 1 — Eating with Gratitude!",
+          description: "How many things we have been taking for granted? Let's start with the food first! What happens when we don't take food for granted and understand how many beings gave their lives away to nourish ours?",
+          videoId: "7dD4lBhPkLA"
+        },
+        {
+          title: "Agni Ep 2 — Chewing Food 24 Times!",
+          description: "Many people have picked up this habit of finishing their meal in 6-7 minutes! How much overwork the digestive system has to do when you eat like you are drinking a glass of water!",
+          videoId: "oyJ544AgYOc"
+        },
+        {
+          title: "Agni Ep 3 — Setting the Right Ambience for Eating",
+          description: "This may surprise you but how you consume food is as important as what you consume! Don't be in a hurry — don't watch TV, check your phone, or do any other passive activity while consuming food.",
+          videoId: "gX44WjfLWcU"
+        },
+        {
+          title: "Agni Ep 4 — Neem & Turmeric!",
+          description: "We look at how having Neem and Turmeric early morning, on a daily basis is very beneficial for one's Sadhana and overall well-being.",
+          videoId: "uI8yVzlZAmU"
+        },
+        {
+          title: "Agni Ep 5 — How Many Meals Can One Have?",
+          description: "In this 5th video of the Agni series, we explore from a yogic perspective about how many meals can one have and why having sufficient gap between meals is so important.",
+          videoId: "ZIlTmt0zlJg"
+        },
+        {
+          title: "Agni Ep 6 — Consume At least 50% Raw Food",
+          description: "In this 6th video of the Agni series, we explore why consuming at least 50% raw food is beneficial for the human system and how it can influence our daily activity.",
+          videoId: "TelLzZZ9vSI"
+        },
+        {
+          title: "Agni Ep 7 — Consuming a Variety of Grains",
+          description: "In this 7th episode of the Agni series, we explore the importance of incorporating different types of grains, especially Millets, in one's diet and how they are beneficial for one's health.",
+          videoId: "tja2Awt3_rU"
+        },
+        {
+          title: "Agni Ep 8 — Eating Fresh Food",
+          description: "In this 8th video of the Agni series, we explore why eating freshly cooked food is beneficial for the human system as opposed to refrigerated food.",
+          videoId: "w7npSa6x1P0"
+        },
+        {
+          title: "Agni Ep 9 — Eating Locally Grown Food",
+          description: "In this 9th video of the Agni series, we explore why eating locally grown food is beneficial for the human system as opposed to food that is imported from somewhere.",
+          videoId: "7jTgxqqAZGM"
+        },
+        {
+          title: "Agni Ep 10 — Drinking Water with Reverence",
+          description: "In this 10th video of the Agni series, we explore how bowing down to the water in gratitude before consuming can change the way it is assimilated into the human system.",
+          videoId: "I4Vtaq3oHdU"
+        },
+        {
+          title: "Agni Ep 11 — Ideal Temperature of Water",
+          description: "In this 11th video of the Agni series, we explore the ideal temperature for consuming water depending on one's aspirations in life.",
+          videoId: "LhSLNVCdMdc"
+        },
+        {
+          title: "Agni Ep 12 — Water in Copper Vessels",
+          description: "In this 12th video of the Agni series, we explore the benefits of consuming water stored in copper vessels and how this can immensely benefit one's health and energies.",
+          videoId: "_taHHeIHAcA"
+        },
+        {
+          title: "Agni Ep 13 — Positve, Negative & Zero Pranic Foods",
+          description: "In this 13th video of the Agni series, we explore how food is classified in the Yogic system and what foods are suitable or should be avoided to increase one's energy levels and aliveness.",
+          videoId: "xpU7iGVSW38"
+        },
+        {
+          title: "Agni Ep 14 — Eating Whole Grains",
+          description: "In this 14th episode of the Agni Series, we look at why we should consume whole grains instead of refined grains.",
+          videoId: "98cpjU8Pspk"
+        },
+        {
+          title: "Agni Ep 15 | Jeevarasam - Drink Consecrated Water",
+          description: "In this 15th episode of the Agni Series, we look at the significance of Jeevarasam which is a powerful tool to energize water.",
+          videoId: "HsTgIL0c-cE"
+        },
+        {
+          title: "Agni Series Ep 16 | Fasting on Ekadashi - a tremendous spiritual possibility",
+          description: "In this 16th episode of the Agni series, we look at how fasting every Ekadashi can not only enhance one's health and well-being but also become a great possibility to grow spiritually.",
+          videoId: "PZd3M-vBcco"
+        },
+        {
+          title: "Agni Series Ep 17 | Eating Vegetarian Food",
+          description: "In this 17th episode of the Agni series, we look at why Eating Vegetarian food is more supportive for your system.",
+          videoId: "9xvABirXXks"
+        },
+        {
+          title: "Agni Series Ep 18 | Don't Sleep After Your Meals!",
+          description: "In this 18th episode of Agni series, we explore why you should not sleep immediately after having meals!",
+          videoId: "9uJHbL1WBTs"
+        },
+        {
+          title: "Agni Series Ep 19 | Why Yogis avoid milk!",
+          description: "In this 19th episode of the Agni Series, we look at why consumption of milk is not recommended for one's overall well-being and especially for aspiring yogis.",
+          videoId: "tAinmWwe1vY"
+        },
+        {
+          title: "Agni Series Ep 20 | How much water to consume?",
+          description: "In this 20th episode of the Agni Series, we look at what is the appropriate amount of water to be consumed throughout the day.",
+          videoId: "Mw437WPO9oM"
+        },
+        {
+          title: "Agni Series Ep 21 | Guidelines for Solar and Lunar Eclipses!",
+          description: "In this 21st episode of the Agni Series, we look at guidelines specified by Sadhguru for Solar and Lunar Eclipses.",
+          videoId: "Qcl7ONY4oQo"
+        },
+        {
+          title: "Agni Series Ep 22 | Groundnuts - A Yogic Meal!",
+          description: "In this 22nd episode of the Agni Series, we look at how groundnuts (or peanuts) can be a complete meal by itself and why its recommended to have them on a daily basis!",
+          videoId: "RSvGphsToog"
+        },
+        {
+          title: "Agni Series Ep 23 | All About Sprouts - including how to sprout green gram!",
+          description: "In this 23rd episode of the Agni Series, we look at how sprouts can be a rich source of nutrition and an essential element of a yogic diet!",
+          videoId: "2J-hwInrbdM"
+        },
+        {
+          title: "Agni Series Ep 24 | Horsegram - Increase Your Ushna! (includes Horsegram - Kollu soup recipe!)",
+          description: "In this 24th episode of the Agni Series, we look at how horsegram can be beneficial. Horsegram has the highest protein content for any lentil found on this planet.",
+          videoId: "fJBtaIbHDA8"
+        },
+        {
+          title: "Agni Series Ep 25 | Multigrain Health Drink (includes Sanjeevini Ganji recipe!)",
+          description: "In this 25th episode of the Agni Series, we look at how consuming a multigrain health drink such as Sanjeevini can be beneficial.",
+          videoId: "fQgszSCSQbk"
+        },
+        {
+          title: "Agni Series Ep 26 | Say NO to White Sugar!",
+          description: "In this 26th episode of the Agni Series, we explore why consuming white sugar on a regular basis is harmful to one's system.",
+          videoId: "fIeDRjo21BM"
+        },
+        {
+          title: "Agni Series Ep 27 | Drumstick - A Miracle Tree!",
+          description: "In this 27th episode of the Agni Series, we explore how Drumstick or Moringa Oleifera is a miracle tree.",
+          videoId: "A-Yy0UbofrU"
+        },
+        {
+          title: "Agni Series Ep 28 | Honey - Take This Daily!",
+          description: "In this 28th episode of the Agni Series, we explore in depth about Honey - a highly positive pranic food that is great for daily consumption!",
+          videoId: "GLMVkj7hSrU"
+        },
+        {
+          title: "Agni Series Ep 29 | All About Ragi - Includes Ragi Kanji recipe!",
+          description: "In this 29th episode of the Agni Series, we explore about Ragi (finger millet), a highly nutritious cereal that can do wonders for our health and well-being!",
+          videoId: "gTnqLZE-j0I"
+        },
+        {
+          title: "Agni Series Ep 30 | Ash Gourd - Includes Ash Gourd juice recipe!",
+          description: "In this 30th episode of the Agni Series, we explore about Ash Gourd (Winter melon) - a highly positive pranic food!",
+          videoId: "-hWKhKbyQT8"
+        },
+        {
+          title: "Agni Series Ep 31 | Amla - Boost Your Immunity!",
+          description: "In this 31st episode of the Agni Series, we explore about Amla or nellikai (Indian Gooseberry) - which can help boost immunity and has loads of other benefits as well!",
+          videoId: "YSRW_rr4r80"
+        },
+        {
+          title: "Agni Series Ep 32 | Sesame - Boost Your Energy!",
+          description: "In this 32nd episode of the Agni Series, we explore about Sesame - a High Energy and High Protein food!",
+          videoId: "1e0eV7KqmoE"
+        },
+        {
+          title: "Agni Series Ep 33 | The Best Way to Heat Water",
+          description: "In this 33rd episode of the Agni Series, we explore about the best way to heat drinking water - from among Solar, Firewood, Gas, and Microwave!",
+          videoId: "AUMeaR-tCzw"
+        },
+        {
+          title: "Agni Series Ep 34 | Coconut - A Yogi's Choice!",
+          description: "In this 34th episode of the Agni Series, we explore all about Coconut and its multiple uses!",
+          videoId: "N3poIUCR68g"
+        },
+        {
+          title: "Agni Series Ep 35 | Coping With Food Allergies!",
+          description: "In this 35th episode of the Agni Series, we explore how to cope with Food Allergies!",
+          videoId: "UFHgi2_vHpo"
+        },
+        {
+          title: "Agni Series Ep 36 | Say No To GMO Foods!",
+          description: "In this 36th episode of the Agni Series, we explore why you should avoid GMO Foods!",
+          videoId: "-9-V_hl6TZU"
+        },
+        {
+          title: "Agni Series Ep 37 | Eating With Bare Hands",
+          description: "In this 37th episode of the Agni Series, we explore why we should eat with bare hands.",
+          videoId: "voaqFGxfMgg"
+        },
+        {
+          title: "Agni Series Ep 38 | How to make a yogic meal easily?",
+          description: "In this 38th episode of the Agni Series, we explore how you can make a yogic meal easily! Also you will find a yogic recipe to try out!",
+          videoId: "lUx8WFFpTbk"
+        }
+      ];
 
-  <!-- Episode 4 -->
-    <div class="row">
-      <h2>Agni Ep 4 — Neem & Turmeric!</h2>
-      <p class="agni-title">
-        We look at how having Neem and Turmeric early morning, 
-        on a daily basis is very beneficial for one's Sadhana and overall well-being.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/uI8yVzlZAmU"></iframe>
-      </div>
-    </div>
-  </div>
+      // Function to create episode card HTML
+      function createEpisodeCard(episode, index) {
+        return `
+          <div class="episode-card">
+            <iframe 
+              src="https://www.youtube.com/embed/${episode.videoId}" 
+              allowfullscreen
+              title="YouTube video player">
+            </iframe>
+            <div class="episode-content">
+              <h3>${episode.title}</h3>
+              <p>${episode.description}</p>
+            </div>
+          </div>
+        `;
+      }
 
-  <!-- Episode 5 -->
-    <div class="row">
-      <h2>Agni Ep 5 — How Many Meals Can One Have?</h2>
-      <p class="agni-title">
-        In this 5th video of the Agni series, we explore from a yogic perspective about 
-        how many meals can one have and why having sufficient gap between meals is so important.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/ZIlTmt0zlJg"></iframe>
-      </div>
-    </div>
-  </div>
+      // Load first 9 episodes
+      for (let i = 0; i < 9 && i < episodes.length; i++) {
+        episodesContainer.innerHTML += createEpisodeCard(episodes[i], i);
+      }
 
-  <!-- Episode 6 -->
-    <div class="row">
-      <h2>Agni Ep 6 — Consume At least 50% Raw Food</h2>
-      <p class="agni-title">
-        In this 6th video of the Agni series, we explore 
-        why consuming at least 50% raw food is beneficial for the 
-        human system and how it can influence our daily activity.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/TelLzZZ9vSI"></iframe>
-      </div>
-    </div>
-  </div>
+      // Load remaining episodes in hidden container
+      for (let i = 9; i < episodes.length; i++) {
+        hiddenEpisodesContainer.innerHTML += createEpisodeCard(episodes[i], i);
+      }
 
-  <!-- Episode 7 -->
-    <div class="row">
-      <h2>Agni Ep 7 — Consuming a Variety of Grains</h2>
-      <p class="agni-title">
-        In this 7th episode of the Agni series, we explore the importance of incorporating different 
-        types of grains, especially Millets, in one's diet and how they are beneficial for one's health.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/tja2Awt3_rU"></iframe>
-      </div>
-    </div>
-  </div>
+      // More episodes button functionality
+      moreEpisodesBtn.addEventListener('click', function() {
+        // Move hidden episodes to main container
+        const hiddenEpisodes = hiddenEpisodesContainer.querySelectorAll('.episode-card');
+        hiddenEpisodes.forEach(episode => {
+          episodesContainer.appendChild(episode);
+        });
 
-  <!-- Episode 8 -->
-    <div class="row">
-      <h2>Agni Ep 8 — Eating Fresh Food</h2>
-      <p class="agni-title">
-        In this 8th video of the Agni series, we explore why eating freshly cooked food is 
-        beneficial for the human system as opposed to refrigerated food.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/w7npSa6x1P0"></iframe>
-      </div>
-    </div>
-  </div>
+        // Show "Show Less" button and hide "More Episodes" button
+        moreEpisodesBtn.style.display = 'none';
+        showLessBtn.style.display = 'block';
+      });
 
-  <!-- Episode 9 -->
-    <div class="row">
-      <h2>Agni Ep 9 — Eating Locally Grown Food</h2>
-      <p class="agni-title">
-        In this 9th video of the Agni series, we explore why eating locally grown food is 
-        beneficial for the human system as opposed to food that is imported from somewhere.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/7jTgxqqAZGM"></iframe>
-      </div>
-    </div>
-  </div>
+      // Show Less button functionality
+      showLessBtn.addEventListener('click', function() {
+        // Move episodes beyond the first 9 back to hidden container
+        const allEpisodes = episodesContainer.querySelectorAll('.episode-card');
+        for (let i = 9; i < allEpisodes.length; i++) {
+          hiddenEpisodesContainer.appendChild(allEpisodes[i]);
+        }
 
-  <!-- Episode 10 -->
-    <div class="row">
-      <h2>Agni Ep 10 — Drinking Water with Reverence</h2>
-      <p class="agni-title">
-        In this 10th video of the Agni series, we explore how bowing down to the water in gratitude before 
-        consuming can change the way it is assimilated into the human system, and how it works towards one's 
-        overall well-being.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/I4Vtaq3oHdU"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 11 -->
-    <div class="row">
-      <h2>Agni Ep 11 — Ideal Temperature of Water</h2>
-      <p class="agni-title">
-        In this 11th video of the Agni series, we explore the ideal temperature for 
-        consuming water depending on one's aspirations in life.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/LhSLNVCdMdc"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 12 -->
-    <div class="row">
-      <h2>Agni Ep 12 — Water in Copper Vessels</h2>
-      <p class="agni-title">
-        In this 12th video of the Agni series, we explore the benefits of consuming water stored 
-        in copper vessels and how this can immensely benefit one's health and energies.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/_taHHeIHAcA"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 13 -->
-    <div class="row">
-      <h2>Agni Ep 13 — Positve, Negative & Zero Pranic Foods</h2>
-      <p class="agni-title">
-        In this 13th video of the Agni series, we explore how food is classified in the Yogic 
-        system and what foods are suitable or should be avoided to increase one's energy levels 
-        and aliveness.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/xpU7iGVSW38"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 14 -->
-    <div class="row">
-      <h2>Agni Ep 14 — Eating Whole Grains</h2>
-      <p class="agni-title">
-        In this 14th episode of the Agni Series, we look at why we should consume whole 
-        grains instead of refined grains. For example choose 
-        Whole Wheat instead of Maida (refined wheat flour) or Unpolished Rice over White Rice.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/98cpjU8Pspk"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 15 -->
-    <div class="row">
-      <h2>Agni Ep 15 | Jeevarasam - Drink Consecrated Water</h2>
-      <p class="agni-title">
-        In this 15th episode of the Agni Series, we look at the significance of Jeevarasam which 
-        is a powerful tool to energize water, and how consuming this energized water can 
-        lead to one's overall health and well-being even without being exposed to any yogic practices.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/HsTgIL0c-cE"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 16 -->
-    <div class="row">
-      <h2>Agni Series Ep 16 | Fasting on Ekadashi - a tremendous spiritual possibility</h2>
-      <p class="agni-title">
-        In this 16th episode of the Agni series, we look at how fasting every Ekadashi can not only 
-        enhance one's health and well-being but also become a great possibility to grow spiritually.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/PZd3M-vBcco"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 17 -->
-    <div class="row">
-      <h2>Agni Series Ep 17 | Eating Vegetarian Food</h2>
-      <p class="agni-title">
-        In this 17th episode of the Agni series, we look at why Eating Vegetarian food is more supportive 
-        for your system and this is not a question of morality or ethics but just about eating what is 
-        easily integrated by the system. Also we bust a few myths about not being able to do intense 
-        physical activity due to being vegetarian.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/9xvABirXXks"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 18 -->
-    <div class="row">
-      <h2>Agni Series Ep 18 | Don't Sleep After Your Meals!</h2>
-      <p class="agni-title">
-        In this 18th episode of Agni series, we explore why you should not sleep 
-        immediately after having meals! A gap of 1.5 to 3 hours is recommended before you sleep.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/9uJHbL1WBTs"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 19 -->
-    <div class="row">
-      <h2>Agni Series Ep 19 | Why Yogis avoid milk!</h2>
-      <p class="agni-title">
-        In this 19th episode of the Agni Series, we look at why consumption of milk 
-        is not recommended for one's overall well-being and especially for aspiring yogis.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/tAinmWwe1vY"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 20 -->
-    <div class="row">
-      <h2>Agni Series Ep 20 | How much water to consume?</h2>
-      <p class="agni-title">
-        In this 20th episode of the Agni Series, we look at what is the appropriate amount of 
-        water to be consumed throughout the day and why following recommendations of drinking a 
-        fixed amount of water may not be beneficial for one's health.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/Mw437WPO9oM"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 21 -->
-    <div class="row">
-      <h2>Agni Series Ep 21 | Guidelines for Solar and Lunar Eclipses!</h2>
-      <p class="agni-title">
-        In this 21st episode of the Agni Series, we look at guidelines specified by Sadhguru 
-        for Solar and Lunar Eclipses - on how to keep the system in the best possible way, do's 
-        and dont's with respect to food, practices etc on Eclipse days.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/Qcl7ONY4oQo"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 22 -->
-    <div class="row">
-      <h2>Agni Series Ep 22 | Groundnuts - A Yogic Meal!</h2>
-      <p class="agni-title">
-        In this 22nd episode of the Agni Series, we look at how groundnuts (or peanuts) 
-        can be a complete meal by itself and why its recommended to have them on a daily basis!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/RSvGphsToog"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 23 -->
-    <div class="row">
-      <h2>Agni Series Ep 23 | All About Sprouts - including how to sprout green gram!</h2>
-      <p class="agni-title">
-       In this 23rd episode of the Agni Series, we look at how sprouts can be a rich source of nutrition and an essential element of a yogic diet! It also 
-       includes a video on how to sprout green gram (mung beans).
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/2J-hwInrbdM"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 24 -->
-    <div class="row">
-      <h2>Agni Series Ep 24 | Horsegram - Increase Your Ushna! (includes Horsegram - Kollu soup recipe!)</h2>
-      <p class="agni-title">
-        In this 24th episode of the Agni Series, we look at how horsegram can be beneficial. 
-        Horsegram has the highest protein content for any lentil found on this planet and many 
-        medicinal benefits as well. It can help increasing ushna (heat) in the system - a boon 
-        for aspiring yogis!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/fJBtaIbHDA8"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 25 -->
-    <div class="row">
-      <h2>Agni Series Ep 25 | Multigrain Health Drink (includes Sanjeevini Ganji recipe!)</h2>
-      <p class="agni-title">
-        In this 25th episode of the Agni Series, we look at how consuming a multigrain health 
-        drink such as Sanjeevini can be beneficial and how it can also be treated as a complete 
-        meal by itself, packed with all the essential nutrients required by the body.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/fQgszSCSQbk"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 26 -->
-    <div class="row">
-      <h2>Agni Series Ep 26 | Say NO to White Sugar!</h2>
-      <p class="agni-title">
-        In this 26th episode of the Agni Series, we explore why consuming white sugar on a regular basis 
-        is harmful to one's system, and what are the more natural alternatives to 
-        white sugar, that are not only sweetening in nature but are also beneficial to one's well-being.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/fIeDRjo21BM"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 27 -->
-    <div class="row">
-      <h2>Agni Series Ep 27 | Drumstick - A Miracle Tree!</h2>
-      <p class="agni-title">
-        In this 27th episode of the Agni Series, we explore how Drumstick or Moringa Oleifera 
-        is a miracle tree and that how every part of this tree, be it the bark, the leaves, the pods, 
-        or the seeds, is useful to the human system.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/A-Yy0UbofrU"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 28 -->
-    <div class="row">
-      <h2>Agni Series Ep 28 | Honey - Take This Daily!</h2>
-      <p class="agni-title">
-        In this 28th episode of the Agni Series, we explore in depth about Honey - 
-        a highly positive pranic food that is great for daily consumption!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/GLMVkj7hSrU"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 29 -->
-    <div class="row">
-      <h2>Agni Series Ep 29 | All About Ragi - Includes Ragi Kanji recipe!</h2>
-      <p class="agni-title">
-        In this 29th episode of the Agni Series, we explore about Ragi (finger millet), 
-        a highly nutritious cereal that can do wonders for our health and well-being! 
-        We have also included recipe to make Ragi Kanji (porridge) and how to make Ragi flour at home.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/gTnqLZE-j0I"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 30 -->
-    <div class="row">
-      <h2>Agni Series Ep 30 | Ash Gourd - Includes Ash Gourd juice recipe!</h2>
-      <p class="agni-title">
-        In this 30th episode of the Agni Series, we explore about Ash Gourd (Winter melon) - 
-        a highly positive pranic food! We have also included how to make Ash gourd juice - 
-        a highly refreshing and energetic drink that you can try to have daily.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/-hWKhKbyQT8"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 31 -->
-    <div class="row">
-      <h2>Agni Series Ep 31 | Amla - Boost Your Immunity!</h2>
-      <p class="agni-title">
-        In this 31st episode of the Agni Series, we explore about Amla or nellikai (Indian Gooseberry) - 
-        which can help boost immunity and has loads of other benefits as well!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/YSRW_rr4r80"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 32 -->
-    <div class="row">
-      <h2>Agni Series Ep 32 | Sesame - Boost Your Energy!</h2>
-      <p class="agni-title">
-        In this 32nd episode of the Agni Series, we explore about Sesame - a High Energy and High Protein food!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/1e0eV7KqmoE"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 33 -->
-    <div class="row">
-      <h2>Agni Series Ep 33 | The Best Way to Heat Water</h2>
-      <p class="agni-title">
-        In this 33rd episode of the Agni Series, we explore about the best way to 
-        heat drinking water - from among Solar, Firewood, Gas, and Microwave!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/AUMeaR-tCzw"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 34 -->
-    <div class="row">
-      <h2>Agni Series Ep 34 | Coconut - A Yogi's Choice!</h2>
-      <p class="agni-title">
-        In this 34th episode of the Agni Series, we explore all about Coconut and its multiple uses!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/N3poIUCR68g"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 35 -->
-    <div class="row">
-      <h2>Agni Series Ep 35 | Coping With Food Allergies!</h2>
-      <p class="agni-title">
-        In this 35th episode of the Agni Series, we explore how to cope with Food Allergies!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/UFHgi2_vHpo"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 36 -->
-    <div class="row">
-      <h2>Agni Series Ep 36 | Say No To GMO Foods!</h2>
-      <p class="agni-title">
-        In this 36th episode of the Agni Series, we explore why you should avoid GMO Foods!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/-9-V_hl6TZU"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 37 -->
-    <div class="row">
-      <h2>Agni Series Ep 37 | Eating With Bare Hands</h2>
-      <p class="agni-title">
-        In this 37th episode of the Agni Series, we explore why we should eat with bare hands.
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/voaqFGxfMgg"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Episode 38 -->
-    <div class="row">
-      <h2>Agni Series Ep 38 | How to make a yogic meal easily?</h2>
-      <p class="agni-title">
-        In this 38th episode of the Agni Series, we explore how you can make a 
-        yogic meal easily! Also you will find a yogic recipe to try out!
-      </p>
-      <div class="col-12 agni-block">
-        <iframe allowfullscreen src="https://www.youtube.com/embed/lUx8WFFpTbk"></iframe>
-      </div>
-    </div>
-  </div>
+        // Show "More Episodes" button and hide "Show Less" button
+        moreEpisodesBtn.style.display = 'block';
+        showLessBtn.style.display = 'none';
+      });
+    });
+  </script>
 </body>
 </html>
 
+
+
+      <!-- Experiences -->
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences Section</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
     
+    .experiences-section {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
     
-    <!-- Memories Section -->
-    <section class="memories">
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #6c757d;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+    
+    .exp-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      overflow: hidden;
+      border: none;
+    }
+    
+    .exp-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-img-container {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+    }
+    
+    .card-img-top {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+    
+    .exp-card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    
+    .card-content {
+      padding: 25px;
+    }
+    
+    .card-text {
+      color: #555;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .card-text.expanded {
+      max-height: none;
+    }
+    
+    .card-text.collapsed {
+      max-height: 120px;
+      overflow: hidden;
+    }
+    
+    .card-text.collapsed::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%);
+    }
+    
+    .read-more-btn {
+      color: #3498db;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    
+    .read-more-btn:hover {
+      color: #2980b9;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    
+    .user-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+      border: 2px solid #f1f1f1;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+    }
+    
+    .user-avatar img {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    
+    .user-details h5 {
+      margin: 0;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    
+    .user-details p {
+      margin: 0;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    .quote-icon {
+      color: #3498db;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      .exp-card {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="experiences-section">
     <div class="container">
-        <div class="section-title">
-            <h2>Srishti Memories</h2>
-            <p>We have completed 20+ Srishti Camps. You'd be glad to know that ~400 participants have gone through this exhilarating experience so far!</p>
+      <div class="text-center mb-5">
+        <h2 class="section-title">Experiences!</h2>
+        <p class="section-subtitle">
+          We encourage you to share your experience of implementing Agni in your life so others also catch this 'wildfire' and get inspired! To submit your experience/sharing, please email us a write-up or a link to the video at ask (at) yogire (dot) com!
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="exp-card">
+            <div class="card-img-container">
+              <img src="assets/images/sasmita.jpg" class="card-img-top" alt="Sasmita Das">
+            </div>
+            <div class="card-content">
+              <div class="quote-icon">❝</div>
+              <p class="card-text collapsed">
+                "Mukul Anna, I have acidity problem for a long time (around 7-8 years) and was 
+                taking lots of medicine only but after watching your Agni videos from YouTube 
+                channel I tried to change my eating habits as you said and Anna trust me I got 
+                tremendous results! Now I can survive without medicine 😄
+<br>
+Now I'm chewing my food properly 😀and actually taking 
+dinner between 7 pm to 8pm. Anna changing dinner timing suddenly reduced 
+my acidity problem. Before I used to take dinner at 10 or 11pm and slept 
+off suddenly.
+<br>
+But now I'm completely following your Agni series. Thanks so much Anna 😃🙏"
+              </p>
+              <a class="read-more-btn">Read More →</a>
+              <div class="user-info">
+                <div class="user-avatar">
+                  <img src="assets/images/sasmita.jpg" alt="Sasmita Das">
+                </div>
+                <div class="user-details">
+                  <h5>— Sasmita Das</h5>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="video-gallery">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/b13oAJx_HPw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="exp-card">
+            <div class="card-img-container">
+              <img src="assets/images/story-1.jpg" class="card-img-top" alt="Anam">
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/3UZ8Wvplpf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-content">
+              <div class="quote-icon">❝</div>
+              <p class="card-text collapsed">
+                "Namaskaram, Neem and turmeric is doing magic in my system, Helping me a lot in storing energy, it balances system very well by cleaning and dilating it. I don't know whole chemistry of it but it relaxes the system which is distinctly visible in my Sadhana 😊🌟
+<br>
+Thanks a lot for making us realize all these things to include in our daily LIFE.
+<br>
+I heard Sadhguru in many videos talking about its benefits but I never paid that much attention to it. 
+It is very often that we miss some very fundamentals of what he is saying to us. 
+But by again and again making it go through our awareness by WhatsApp group, Aahar sessions, 
+Agni series...bringing these little and very fundamental things to our notice and made us able to implement 
+it in our daily lifes through proper guide is truly something that just can't be put into words. 
+Thank you again and again from the bottom of my heart to everyone in this Yogi Re Team to reaching us in beautiful and subtle ways."
+              </p>
+              <a class="read-more-btn">Read More →</a>
+              <div class="user-info">
+                <div class="user-avatar">
+                  <img src="assets/images/story-1.jpg" alt="Anam">
+                </div>
+                <div class="user-details">
+                  <h5>— Anam</h5>
+                </div>
+              </div>
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/IDvBiDcMceU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="exp-card">
+            <div class="card-img-container">
+              <img src="assets/images/aadi.jpg" class="card-img-top" alt="Aaditya">
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/ExqnOt9QZl0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-content">
+              <div class="quote-icon">❝</div>
+              <p class="card-text collapsed">
+                Let us tell you about Aaditya's experience, a post doctoral student in Taiwan.
+                <br>
+                Initially he felt that something like tears while consuming food could never happen to him but to his utter surprise when he tried implementing again, it shook him and he wasn't able to fathom this logically!
+ <br>
+If you haven't yet tried implementing, please do check out the Agni 1 video above, try implementing and share your experience with us! 🌸 🙏
+              </p>
+              <a class="read-more-btn">Read More →</a>
+              <div class="user-info">
+                <div class="user-avatar">
+                  <img src="assets/images/aadi.jpg" alt="Aaditya">
+                </div>
+                <div class="user-details">
+                  <h5>— Aaditya's Experience</h5>
+                </div>
+              </div>
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VLZu7p1tcyg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const readMoreButtons = document.querySelectorAll('.read-more-btn');
+      
+      readMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const cardText = this.previousElementSibling;
+          
+          if (cardText.classList.contains('collapsed')) {
+            cardText.classList.remove('collapsed');
+            cardText.classList.add('expanded');
+            this.textContent = 'Read Less →';
+          } else {
+            cardText.classList.remove('expanded');
+            cardText.classList.add('collapsed');
+            this.textContent = 'Read More →';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+     
+
+   <!-- Namaskaram Mukul Anna -->
+    <section class="about-mukul">
+        <div class="container">
+            <div class="about-mukul-image">
+                <img src="assets/images/mukul-white.png" alt="Mukul Anna">
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/QN9bS-yMwr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="about-mukul-content">
+                <h2>Namaskaram from Mukul Anna!</h2>
+                <blockquote>
+                    Mukul underwent intense teacher training designed by Sadhguru, founder of Isha Foundation, and has personally conducted 400+ workshops across India in the last 8 years, touching over 8000 lives!
+                    <br/><br/>
+                    All our yoga programs are designed by Sadhguru, founder of Isha Foundation.
+                </blockquote>
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/07gy3joeZgI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/XFDlFbHuZco" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/nl94emXk1g8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VUFDUxu9vAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/PuAqJxqgMX4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/QxVLnxOFzvs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/R-2VFYpyAtQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/BZPXM55UCBM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/eidxyh0L1WY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/U35L8qaqVBA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/C88OOIkSR00" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/SRrPpTkBpEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/lKNITJwaxEc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/8V7hiYFPFI8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/N8mQLDtF1Uk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/LxgvCuborG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+
+    <br>
+    <br>
+
+    <section class="bg--white cta cta-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 text-center col-sm-offset-1">
+                <h2>Yogi Re WhatsApp Group</h2>
+                <p>
+                    We have a WhatsApp broadcast group where you can get daily yogic updates.You can also get information on upcoming Isha & Yogi Re programs. 
+                    If you'd like to be added to the group, please tap the link below.
+                </p>
+                
+                <a class="whatsapp-btn" href="https://yogire.com/whatsapp" target="_blank">
+                    Let Me In!
+                </a>
             </div>
         </div>
     </div>
 </section>
 
 <style>
-.memories {
-    padding: 40px 0;
-    background-color: #f9f9f9;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.section-title p {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.main-video {
-    margin-bottom: 40px;
-}
-
-.video-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%; /* Creates square aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.whatsapp-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
     border: none;
+    cursor: pointer;
+    margin: 20px 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .video-gallery {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    color: white;
+    text-decoration: none;
 }
 
+.whatsapp-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .video-gallery {
-        grid-template-columns: repeat(2, 1fr);
+    .whatsapp-btn {
+        padding: 14px 30px;
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .video-gallery {
-        grid-template-columns: 1fr;
+    .whatsapp-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
 </style>
     
-    <!-- Stay Updated Section -->
-    <section class="stay-updated">
-        <div class="container">
-            <div class="content-box">
-                <h2>Stay Updated - Join the Yogi Re Broadcast</h2>
-                <p>We have a WhatsApp broadcast group and Telegram channel where you can get daily yogic updates. You can also get information on upcoming Isha & Yogi Re programs.</p>
-                
-                <div class="cta-buttons">
-                    <a href="http://yogire.com/whatsapp" class="btn btn-primary" target="_blank">Let Me In! (WhatsApp)</a>
-                    <a href="http://yogire.com/telegram" class="btn btn-primary" target="_blank">Let Me In! (Telegram)</a>
-                </div>
-                
-                <p>If you are unable to join using links above, please send us a message on</p>
-                <h3>+91-8217481232</h3>
-                <p>to add you.</p>
-            </div>
-        </div>
-    </section>
+<br>
+<br>
+
+<!doctype html>
+<html lang="en">
+<head>
     
-    <!-- About Mukul Section -->
-    <section class="about-mukul">
-        <div class="container">
-            <div class="about-mukul-image">
-                <img src="assets/images/mukul-anna.jpg" alt="Mukul Anna">
-            </div>
-            <div class="about-mukul-content">
-                <h2>Namaskaram from Mukul Anna!</h2>
-                <p>Srishti is a holistic residential camp for young minds to re-introduce and bring about vital elements — nature, yoga, food, and play into their lives. We have completed over 20 Srishti camps and more than 400 children have gone through the Srishti experience so far.</p>
-                <p>Srishti is one of the programs offered by <a href="http://yogire.com" target="_blank" style="color: var(--accent);">Yogi Re</a> — an initiative started by Mukul to bring at least an element of being a yogi in everyone's life.</p>
-                <p>Mukul underwent intense teacher training designed by Sadhguru, founder of Isha Foundation, and has personally conducted 350+ workshops across India in the last 8 years, touching over 6000 lives!</p>
-                <blockquote>
-                    All our yoga programs are designed by Sadhguru, founder of Isha Foundation.
-                </blockquote>
-            </div>
+    
+    <style>
+        
+        /* Namaskaram from Mukul Anna Section  */
+        .about-mukul {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-mukul .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-mukul-image {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        
+        .about-mukul-image img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-mukul-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .about-mukul-content {
+            flex: 1;
+        }
+        
+        .about-mukul-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #fdbb2d;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .about-mukul-content blockquote {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            border-left: 5px solid #fdbb2d;
+            padding-left: 25px;
+            margin: 25px 0;
+            font-style: italic;
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .about-mukul-badge {
+            background: linear-gradient(135deg, #fdbb2d, #f79d00);
+            color: #1a2a6c;
+            padding: 12px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 700;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(253, 187, 45, 0.3);
+        }
+        
+        /* WhatsApp Group Section */
+        .whatsapp-section {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="rgba(255,255,255,0.1)"><path d="M30,30 Q50,10 70,30 T90,30 T70,70 T30,70 T10,30 T30,30 Z"/></svg>');
+            background-size: 200px;
+            opacity: 0.1;
+        }
+        
+        .whatsapp-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .whatsapp-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-section p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: white;
+            color: #25D366;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            color: #128C7E;
+            text-decoration: none;
+        }
+        
+        .whatsapp-section .note {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 25px;
+            font-style: italic;
+        }
+        
+        /* Responsive Design for New Sections */
+        @media (max-width: 968px) {
+            .about-mukul .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .about-mukul-image {
+                flex: 0 0 auto;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            .about-mukul-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-mukul-content blockquote {
+                border-left: none;
+                padding-left: 20px;
+                border-top: 5px solid #fdbb2d;
+                padding-top: 20px;
+                border-radius: 15px 15px 0 0;
+            }
+            
+            .whatsapp-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .whatsapp-section p {
+                font-size: 1.1rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-mukul {
+                padding: 60px 0;
+            }
+            
+            .about-mukul .container {
+                padding: 0 20px;
+            }
+            
+            .about-mukul-content h2 {
+                font-size: 2rem;
+            }
+            
+            .about-mukul-content blockquote {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+            
+            .whatsapp-section {
+                padding: 60px 0;
+            }
+            
+            .whatsapp-section .container {
+                padding: 0 20px;
+            }
+            
+            .whatsapp-section h2 {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-section p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a id="top"></a>
+    <?php include 'header.php'; ?>
         </div>
     </section>
+
+</body>
+</html>
     
     <!-- Original Content Preserved (with styling updates) -->
     <div class="main-container">
@@ -1370,9 +1677,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <a class="register-floating" href="https://yogire.com/srishti/bandipur" target="_blank">
-        Srishti Children's Camp - Dec 25-28, 2024 <br> Register Now
-    </a>
     
     <!-- Original JavaScript files preserved -->
     <script src="js/jquery-2.1.4.min.js"></script>

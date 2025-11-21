@@ -831,8 +831,6 @@ $testimonials = $conn->query("SELECT * FROM testimonials");
             .program-details-list {
                 padding: 15px;
             }
-
-            
         }
     </style>
 </head>
@@ -1026,25 +1024,7 @@ $testimonials = $conn->query("SELECT * FROM testimonials");
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <!-- Add this inside <head> -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-
-<!-- Use this heading where needed -->
-<h3 class="program-heading">Dwijas Program - Sharings!</h3>
-
-<!-- Add this CSS -->
-<style>
-.program-heading {
-    font-family: 'Playfair Display', serif; /* classic serif font */
-    font-weight: 900; /* strong bold */
-    font-size: 2.2rem; /* adjust size as you like */
-    color: #2b2b2b; /* elegant dark gray/black */
-    text-align: center; /* center it like in your image */
-    letter-spacing: 0.5px; /* improves spacing */
-    margin-bottom: 20px;
-}
-</style>
-
+                    <h3>Dwijas Program - Sharings!</h3>
                     <ul class="tabs">
                         <li class="active">
                             <div>
@@ -1061,7 +1041,7 @@ $testimonials = $conn->query("SELECT * FROM testimonials");
     </section>
 
     <!-- Section 6: Experiences! (Testimonials) -->
- <section class="testimonials">
+    <section class="testimonials">
     <div class="container">
         <div class="section-title">
             <h2>Experiences!</h2>
@@ -1145,7 +1125,6 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
 });
 </script>
 
-
     <!-- Section 7: Explore All Aspects of Yogic Life -->
     <section>
         <div class="container">
@@ -1156,7 +1135,7 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
             
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="assets/images/food-srishti.jpg" alt="Healthy Satvik Dish">
+                    <img src="assets/images/1.jpg" alt="Healthy Satvik Dish">
                 </div>
                 <div class="gallery-item">
                     <img src="assets/images/bath.png" alt="Yogic Bathing">
@@ -1166,21 +1145,6 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
                 </div>
                 <div class="gallery-item">
                     <img src="assets/images/ReduceSleep.jpg" alt="Sleep Management">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/Dhoti.png" alt="Sleep Management">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/NaturalFood.png" alt="Sleep Management">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/Rudraksh.png" alt="Sleep Management">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/CopperWare.png" alt="Sleep Management">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/dirSleep.jpg" alt="Sleep Management">
                 </div>
             </div>
         </div>
@@ -1379,99 +1343,47 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
 
     <!-- Section 9: Program Details (15-point detailed explanation) -->
     <section class="program-details">
-  <div class="container">
-    <div class="section-title text-center">
-      <h2>Program Details</h2>
-      <p>Comprehensive information about what to expect from the Dwijas program</p>
-    </div>
-
-    <div class="program-details-list">
-      <ol id="programList">
-        <li><strong>Exploration of a Yogic lifestyle</strong> - we will be exploring all aspects of life right from how to wake up, how to take a bath, how to eat, how to drink, how to speak, what to wear, when to sleep, how to sleep, etc so that every aspect of your life can be made as a device or tool for your ultimate well-being.</li>
-
-        <li><strong>The objective of the program</strong> is to help people implement a yogic lifestyle and establish the same over a period of 21 days.</li>
-
-        <li><strong>This program is more suited for existing yoga practitioners</strong> who are looking to intensify their sadhana by aligning all aspects of their lifestyle. This can happen if common roadblocks like not being able to keep up sadhana, improper sleep and food timings, etc can be cleared up - this is something that can happen over the course of the 21-day Program.</li>
-
-        <li><strong>No new yogic practices will be taught</strong> during this program.</li>
-
-        <li><strong>Also this is not an in-depth look at Yogic Diet</strong> - we will be exploring a few aspects of yogic diet that can help with sadhana. For an in-depth exploration of Yogic diet, recipes, cooking lessons, etc you can check out the Aahar Online Program <a href="https://www.yogire.com/aahar/" target="_blank">www.yogire.com/aahar/</a></li>
-
-        <li><strong>We will not be looking at any technical yoga practice-related doubts</strong> (for example clarification about Yogasanas steps etc) or any practice corrections during this program - for these, you can get in touch with your Isha Hatha yoga teacher and meet them offline.</li>
-
-        <li><strong>There will be scope for Q&A during the program</strong> where you can get your queries about implementing a yogic lifestyle answered by Mukul Anna.</li>
-
-        <li><strong>The program will be interspersed with meditations</strong> like Isha Kriya/Chit Shakti, Sadhguru's videos, Mukul Anna's sharing about how to imbibe a yogic life, daily implementation tasks, etc.</li>
-
-        <li><strong>Please note that this program is implementation focused</strong> - so participants will need to put in the consistent daily effort to implement whatever we explore. So please join only if you are willing to stretch yourselves and do what's required.</li>
-
-        <li><strong>Our aim is that by the end of 21 days program, yoga should not just be about the 1 to 3 hours you spend doing your yogic practices</strong> but that yoga should be ON 24 hours of the day for you - every activity that you do can become a process for your well-being if you approach it that way.</li>
-
-        <li><strong>We will be creating a group for all registered participants</strong> where participants can support each other and share their experiences over the course of the program. We will also be posting login details of the online session on the group, a few days before the program start.</li>
-
-        <li><strong>Attendance is mandatory for all 21 days</strong>, this is like a continuous process - if you miss any of the days for whatever reasons, the recording will not be available for the same and your experience of the program may be impacted. If you miss more than one session of the program, you may be asked to discontinue the program. So please join only if you are willing to commit to attending all the 21 days without a break.</li>
-
-        <li><strong>Program timings coincide with Brahma Muhurtham</strong> (for those based in India/USA/Canada) so that it can assist you to make use of this time for your daily sadhana - for those joining from other regions of the world, though the program timings may not coincide with Brahma Muhurtham in your region, you can still attend and try to implement the guidelines suggested during the program.</li>
-
-        <li><strong>If you are unable to attend this session, but would be like to be updated about the upcoming online sessions</strong>, Please fill out a simple form <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTf7cpt-JGD8JMsWaesWtTOO8NEe8G5fBwo3G-v0Hqc9XtiQ/viewform" target="_blank">here</a>.</li>
-
-        <li><strong>To know more about other Yogi Re programs and initiatives</strong> please visit - <a href="https://yogire.com" target="_blank">yogire.com</a></li>
-      </ol>
-
-      <div class="text-center mt-3">
-        <button id="readMoreBtn" class="btn btn-outline-primary">Read More</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Add this CSS -->
-<style>
-  .program-details-list ol li {
-    margin-bottom: 12px;
-    line-height: 1.6;
-    transition: all 0.4s ease-in-out;
-  }
-  .program-details-list ol li.hidden {
-    display: none;
-  }
-  #readMoreBtn {
-    transition: 0.3s;
-  }
-  #readMoreBtn:hover {
-    background-color: #0d6efd;
-    color: #fff;
-    transform: scale(1.05);
-  }
-</style>
-
-<!-- Add this JS (requires jQuery) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function () {
-    const visibleCount = 6; // show first 6 items
-    const listItems = $("#programList li");
-    const readMoreBtn = $("#readMoreBtn");
-
-    // Initially hide all items after 6
-    listItems.slice(visibleCount).addClass("hidden");
-
-    readMoreBtn.on("click", function () {
-      const hiddenItems = listItems.filter(".hidden");
-
-      if (hiddenItems.length) {
-        hiddenItems.removeClass("hidden").slideDown();
-        $(this).text("Read Less");
-      } else {
-        listItems.slice(visibleCount).slideUp(400, function () {
-          $(this).addClass("hidden");
-        });
-        $(this).text("Read More");
-      }
-    });
-  });
-</script>
-
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Details</h2>
+                <p>Comprehensive information about what to expect from the Dwijas program</p>
+            </div>
+            
+            <div class="program-details-list">
+                <ol>
+                    <li><strong>Exploration of a Yogic lifestyle</strong> - we will be exploring all aspects of life right from how to wake up, how to take a bath, how to eat, how to drink, how to speak, what to wear, when to sleep, how to sleep, etc so that every aspect of your life can be made as a device or tool for your ultimate well-being.</li>
+                    
+                    <li><strong>The objective of the program</strong> is to help people implement a yogic lifestyle and establish the same over a period of 21 days.</li>
+                    
+                    <li><strong>This program is more suited for existing yoga practitioners</strong> who are looking to intensify their sadhana by aligning all aspects of their lifestyle. This can happen if common roadblocks like not being able to keep up sadhana, improper sleep and food timings, etc can be cleared up - this is something that can happen over the course of the 21-day Program.</li>
+                    
+                    <li><strong>No new yogic practices will be taught</strong> during this program.</li>
+                    
+                    <li><strong>Also this is not an in-depth look at Yogic Diet</strong> - we will be exploring a few aspects of yogic diet that can help with sadhana. For an in-depth exploration of Yogic diet, recipes, cooking lessons, etc you can check out the Aahar Online Program <a href="https://www.yogire.com/aahar/" target="_blank">www.yogire.com/aahar/</a></li>
+                    
+                    <li><strong>We will not be looking at any technical yoga practice-related doubts</strong> (for example clarification about Yogasanas steps etc) or any practice corrections during this program - for these, you can get in touch with your Isha Hatha yoga teacher and meet them offline.</li>
+                    
+                    <li><strong>There will be scope for Q&A during the program</strong> where you can get your queries about implementing a yogic lifestyle answered by Mukul Anna.</li>
+                    
+                    <li><strong>The program will be interspersed with meditations</strong> like Isha Kriya/Chit Shakti, Sadhguru's videos, Mukul Anna's sharing about how to imbibe a yogic life, daily implementation tasks, etc.</li>
+                    
+                    <li><strong>Please note that this program is implementation focused</strong> - so participants will need to put in the consistent daily effort to implement whatever we explore. So please join only if you are willing to stretch yourselves and do what's required.</li>
+                    
+                    <li><strong>Our aim is that by the end of 21 days program, yoga should not just be about the 1 to 3 hours you spend doing your yogic practices</strong> but that yoga should be ON 24 hours of the day for you - every activity that you do can become a process for your well-being if you approach it that way.</li>
+                    
+                    <li><strong>We will be creating a group for all registered participants</strong> where participants can support each other and share their experiences over the course of the program. We will also be posting login details of the online session on the group, a few days before the program start.</li>
+                    
+                    <li><strong>Attendance is mandatory for all 21 days</strong>, this is like a continuous process - if you miss any of the days for whatever reasons, the recording will not be available for the same and your experience of the program may be impacted. If you miss more than one session of the program, you may be asked to discontinue the program. So please join only if you are willing to commit to attending all the 21 days without a break.</li>
+                    
+                    <li><strong>Program timings coincide with Brahma Muhurtham</strong> (for those based in India/USA/Canada) so that it can assist you to make use of this time for your daily sadhana - for those joining from other regions of the world, though the program timings may not coincide with Brahma Muhurtham in your region, you can still attend and try to implement the guidelines suggested during the program.</li>
+                    
+                    <li><strong>If you are unable to attend this session, but would be like to be updated about the upcoming online sessions</strong>, Please fill out a simple form <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTf7cpt-JGD8JMsWaesWtTOO8NEe8G5fBwo3G-v0Hqc9XtiQ/viewform" target="_blank">here</a>.</li>
+                    
+                    <li><strong>To know more about other Yogi Re programs and initiatives</strong> please visit - <a href="https://yogire.com" target="_blank">yogire.com</a></li>
+                </ol>
+            </div>
+        </div>
+    </section>
 
     <!-- Section 10: All About Dwijas - Explained! -->
     <section>
